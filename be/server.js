@@ -17,7 +17,7 @@ app.get("/api/todo-lists/:todoListId/tasks", controller.getTasks);
 app.post("/api/tasks", controller.createTask);
 app.delete("/api/tasks/:id", controller.deleteTask);
 app.put("/api/tasks/:id", controller.updateTask);
-app.get("/api/tasks/:todoListId", controller.getTasksForList); 
+app.get("/api/tasks/:todoListId", controller.getTasks); 
 
 app.use(handleErrors);
 

@@ -1,38 +1,25 @@
 import React from "react";
-import { createTask, deleteTask, updateTask } from "../../api";
+import { FaTrash } from "react-icons/fa";
 
-const Task = ({ tasks, todoListId, fetchTasks }) => {
-  const handleCreateTask = async (content) => {
-    await createTask(content, todoListId);
-    fetchTasks();
-  };
-
-  const handleDeleteTask = async (id) => {
-    await deleteTask(id);
-    fetchTasks();
-  };
-
-  const handleUpdateTask = async (id, completed) => {
-    await updateTask(id, completed);
-    fetchTasks();
-  };
-
+const Task = ({ task, onToggle, onDelete }) => {
   return (
-    <div>
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.id}>
-            {task.content}
-            <input
-              type="checkbox"
-              checked={task.completed}
-              onChange={() => handleUpdateTask(task.id, !task.completed)}
-            />
-            <button onClick={() => handleDeleteTask(task.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => handleCreateTask("New Task")}>Add Task</button>
+    <div className="flex justify-between items-center mb-2">
+      <div className="flex items-center">
+        <input
+          type="checkbox"
+          checked={task.completed}
+          onChange={() => onToggle(!task.completed)}
+          className="mr-2"
+        />
+        <span
+          className={`text-gray-700`}
+        >
+          {task.content}
+        </span>
+      </div>
+      <button onClick={onDelete} className="text-red-500">
+        <FaTrash />
+      </button>
     </div>
   );
 };
