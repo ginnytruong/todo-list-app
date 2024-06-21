@@ -2,11 +2,14 @@
 
 ## Prerequisites:
 Node.js and npm installed on your machine.
+
 MySQL installed locally or accessible via a remote server.
+
 .env file set up with your MySQL database credentials.
 
 ## Tech Stack Used:
 Frontend: React.js, Tailwind CSS
+
 Backend: Node.js, Express.js, MySQL
 
 ## Future Enhancements:
