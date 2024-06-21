@@ -11,7 +11,9 @@ Backend: Node.js, Express.js, MySQL
 
 ## Future Enhancements:
 TypeScript Migration: Convert existing JavaScript codebase to TypeScript for improved type safety and developer experience.
+
 Unit Testing: Implement unit tests to ensure code reliability and maintainability.
+
 Authentication Layer: Integrate authentication mechanisms to secure user data and interactions.
 
 ## Steps to Load the App Locally:
