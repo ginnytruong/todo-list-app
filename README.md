@@ -30,15 +30,20 @@ Authentication Layer: Integrate authentication mechanisms to secure user data an
 ## Set Up MySQL Database:
 ### Install MySQL:
 1. If MySQL is not installed on your machine, download and install it from MySQL Downloads.
+   
 2. Access MySQL:
 Open your MySQL client (e.g., MySQL Workbench, Sequel Pro, or command-line client).
+
 3. Create Database:
 Create a new database for the application. For example, in your MySQL client, run:
 `CREATE DATABASE new_todo_app;`
+
 4. Create User:
 Create a new user and grant privileges to the database. Replace <your-mysql-user>, <your-mysql-password>, and <your-mysql-database> with your preferred credentials:
 `CREATE USER '<your-mysql-user>'@'localhost' IDENTIFIED BY '<your-mysql-password>';`
+
 `GRANT ALL PRIVILEGES ON new_todo_app.* TO '<your-mysql-user>'@'localhost';`
+
 `FLUSH PRIVILEGES;`
 
 ## Set Environment Variables:
