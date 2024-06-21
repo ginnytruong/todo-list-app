@@ -1,5 +1,5 @@
 const mysql = require("mysql");
-const connection = require("../connection");
+const connection = require("../../connection");
 
 exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
