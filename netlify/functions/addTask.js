@@ -1,23 +1,23 @@
 const mysql = require("mysql");
-const connection = require("../connection");
+const connection = require("../../connection");
 
 exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
 
   try {
-    const { name } = JSON.parse(event.body);
-    const query = "INSERT INTO todo_lists (name) VALUES (?)";
-    await queryDatabase(query, [name]);
+    const { content, todoListId } = JSON.parse(event.body);
+    const query = "INSERT INTO tasks (content, todo_list_id) VALUES (?, ?)";
+    await queryDatabase(query, [content, todoListId]);
 
     return {
       statusCode: 201,
-      body: JSON.stringify({ message: "Todo list created successfully" }),
+      body: JSON.stringify({ message: "Task created successfully" }),
     };
   } catch (error) {
-    console.error("Error adding todo list:", error);
+    console.error("Error adding task:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: "Error adding todo list" }),
+      body: JSON.stringify({ message: "Error adding task" }),
     };
   }
 };
