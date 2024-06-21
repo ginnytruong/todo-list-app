@@ -18,10 +18,11 @@ Authentication Layer: Integrate authentication mechanisms to secure user data an
 
 ## Steps to Load the App Locally:
 ### Clone the Repository:
-bash
-Copy code
-git clone <repository-url>
-cd <project-directory>
+
+`git clone <repository-url>`
+
+`cd <project-directory>`
+
 ### Install Dependencies:
 bash
 Copy code
