@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { todoListSchema } from "../../../validation/validation";
 
 const AddTodoListForm = ({ onAdd }) => {
   const [title, setTitle] = useState("");
@@ -7,22 +8,23 @@ const AddTodoListForm = ({ onAdd }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title) {
-      setHasError(true);
-      return;
+    try {
+      todoListSchema.parse({ name: title });
+      setHasError(false);
+      setIsPosting(true);
+      onAdd(title)
+        .then(() => {
+          setTitle("");
+        })
+        .catch((error) => {
+          console.error("Error creating todo list:", error);
+        })
+        .finally(() => {
+          setIsPosting(false);
+        });
+    } catch (validationError) {
+      setError(validationError.errors[0].message);
     }
-    setHasError(false);
-    setIsPosting(true);
-    onAdd(title)
-      .then(() => {
-        setTitle("");
-      })
-      .catch((error) => {
-        console.error("Error creating todo list:", error);
-      })
-      .finally(() => {
-        setIsPosting(false);
-      });
   };
 
   return (

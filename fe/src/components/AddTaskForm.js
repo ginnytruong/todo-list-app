@@ -1,17 +1,18 @@
 import React, { useState } from "react";
+import { taskSchema } from "../../../validation/validation";
 
 const AddTaskForm = ({ onCreate }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!newTaskContent) return;
     try {
+      taskSchema.parse({ content: newTaskContent });
       await onCreate(newTaskContent);
       setNewTaskContent("");
-    } catch (error) {
-      console.error("Error creating task:", error);
-    }
+    } catch (validationError) {
+      setError(validationError.errors[0].message);
+    } 
   };
 
   return (

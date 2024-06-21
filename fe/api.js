@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api";
+const API_URL = "http://localhost:9000/api";
 
 export const getTodoLists = async () => {
   const response = await axios.get(`${API_URL}/todo-lists`);
