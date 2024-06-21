@@ -1,4 +1,5 @@
 ## README for Local Deployment:
+Please note that while the application can be loaded locally, it still needs to be hosted and deployed for production use.
 
 ## Prerequisites:
 Node.js and npm installed on your machine.
@@ -18,6 +19,8 @@ TypeScript Migration: Convert existing JavaScript codebase to TypeScript for imp
 Unit Testing: Implement unit tests to ensure code reliability and maintainability.
 
 Authentication Layer: Integrate authentication mechanisms to secure user data and interactions.
+
+Hosting & Deployment: Please note that while the application can be loaded locally, it still needs to be hosted and deployed for production use.
 
 ## Steps to Load the App Locally:
 ### Clone the Repository:
